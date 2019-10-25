@@ -5,8 +5,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     
-    public bool IsGameOver { get; private set; }
-    public float RestartDelay = 2f;
+    public bool isGameOver { get; private set; }
+    public float restartDelay = 2f;
 
     public GameObject gameOver;
     
@@ -30,14 +30,14 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
 
-        if (!IsGameOver)
+        if (!isGameOver)
         {
-            IsGameOver = true;
+            isGameOver = true;
             gameOver.SetActive(true);
 
             Debug.Log("Game Over :c");
             
-            Invoke("Restart", RestartDelay);
+            Invoke("Restart", restartDelay);
             
         }
         

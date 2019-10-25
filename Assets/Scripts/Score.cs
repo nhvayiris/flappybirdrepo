@@ -4,15 +4,15 @@ public class Score : MonoBehaviour
 {
 
     public GameObject[] Number;
-    public Transform[] field;
-    GameObject[] activeNo;
+    public Transform[] Field;
+    GameObject[] ActiveNo;
 
     public int playerScore;
 
     public void Awake()
     {
         playerScore = 0;
-        activeNo = new GameObject[field.Length]; //initialization of the array
+        ActiveNo = new GameObject[Field.Length]; //initialization of the array
     }
 
 
@@ -25,7 +25,7 @@ public class Score : MonoBehaviour
      void setValue(int score)
     {
         int Convert = 1;
-        for (int i=0; i<field.Length; i++)
+        for (int i=0; i<Field.Length; i++)
         {
             int scoreConvert = (score / Convert) % 10;
             print(scoreConvert, i);
@@ -37,13 +37,13 @@ public class Score : MonoBehaviour
 
     void print(int score, int position)
     {
-        if (this.activeNo[position] != null)
+        if (this.ActiveNo[position] != null)
         {
-            Destroy(this.activeNo[position]);
+            Destroy(this.ActiveNo[position]);
         } 
-            this.activeNo[position] = Instantiate(this.Number[score], this.field[position].position, this.field[position].rotation);
-            this.activeNo[position].name = this.field[position].name;
-            this.activeNo[position].transform.parent = this.field[position];
+            this.ActiveNo[position] = Instantiate(this.Number[score], this.Field[position].position, this.Field[position].rotation);
+            this.ActiveNo[position].name = this.Field[position].name;
+            this.ActiveNo[position].transform.parent = this.Field[position];
 
     } 
 }
